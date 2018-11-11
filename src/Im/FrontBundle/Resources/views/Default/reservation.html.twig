@@ -1,0 +1,21 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    {{ include("ImFrontBundle:Default:head.html.twig") }}
+</head>
+<body>
+{{ include("ImFrontBundle:Default:nav.html.twig") }}
+{% if new_rdv is defined %}
+    {% if Date is defined %}
+        {{ render(controller('PlanningBundle:Reservation:newReservation', {'Date': Date, 'domain' : domain})) }}
+    {% else %}
+        {{ render(controller('PlanningBundle:Reservation:newReservation', {'Date': '', 'domain' : ''})) }}
+    {% endif %}
+{% elseif Date is defined %}
+    {{ render(controller('PlanningBundle:Reservation:openPlanning', {'Date': Date })) }}
+{% else %}
+    {{ render(controller('PlanningBundle:Reservation:openPlanning', {'Date': ''})) }}
+{% endif %}
+{{ include("ImFrontBundle:Default:footer.html.twig") }}
+</body>
+</html>

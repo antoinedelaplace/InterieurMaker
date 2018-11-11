@@ -1,0 +1,17 @@
+appli:
+  image: interieurmaker/appli:6
+  container_name: im_front
+  restart: always
+  volumes:
+      - .:/var/www/html
+      - ../../sql:/var/lib/mysql
+  ports:
+      - 9500:80
+  working_dir: /var/www/html
+webrtc:
+  image: interieurmaker/webrtc
+  container_name: im_webrtc
+  restart: always
+  ports:
+      - 8000:8000
+      - 8001:8001

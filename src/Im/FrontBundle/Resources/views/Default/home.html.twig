@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    {{ include("ImFrontBundle:Default:head.html.twig") }}
+</head>
+<body>
+
+<div class="top-bar ">
+    <div class="top-bar-left">
+        <ul class="menu">
+            <li class="menu-text "><a href="{{ path('im_front_homepage') }}">Interieur Maker</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li class="menu-text"><a href="{{ path('im_front_planning') }}">Planning</a></li>
+            <li class="menu-text"><a href="{{ path('im_front_subscribe_agent') }}">Admin</a></li>
+            <li class="menu-text"><a href="{{ path('im_front_gestion_agent') }}">Agents</a></li>
+            <li class="menu-text"><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
+          {% else  %}
+            <li class="menu-text"><a data-open="ModalConnexion">Se connecter</a></li>
+          {% endif %}
+        </ul>
+    </div>
+</div>
+
+<!-- Start Modal -->
+{{ render(controller('UserBundle:Default:Connexion')) }}
+<!-- End Modal -->
+
+<!-- Start Header -->
+<div id="first-text" class="callout large back-gray">
+  <div class="row column text-center">
+    <h1>Un problème avec vos travaux ?</h1>
+    <p class="lead">Rejoignez le réseau de professionnels des travaux à votre disposition !</p>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {% else  %}
+      <a href="{{ path('im_front_subscribe') }}" class="button large">S'inscrire</a>
+    {% endif %}
+  </div>
+</div>
+<!-- End Header -->
+
+<!-- Start Job -->
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    {% image '@ImFrontBundle/Resources/public/img/painting.jpg' %}
+    <img class="thumbnail" src="{{ asset_url }}" />
+    {% endimage %}
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <h2>Peinture</h2>
+    <p></p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    <h2>Plomberie</h2>
+    <p></p>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    {% image '@ImFrontBundle/Resources/public/img/plumbing.jpg' %}
+    <img class="thumbnail" src="{{ asset_url }}" />
+    {% endimage %}
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    {% image '@ImFrontBundle/Resources/public/img/electricty.jpg' %}
+    <img class="thumbnail" src="{{ asset_url }}" />
+    {% endimage %}
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <h2>Electricité</h2>
+    <p></p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    <h2>Architecture d'intérieur</h2>
+    <p></p>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    {% image '@ImFrontBundle/Resources/public/img/interior.jpg' %}
+    <img class="thumbnail" src="{{ asset_url }}" />
+    {% endimage %}
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+    {% image '@ImFrontBundle/Resources/public/img/wall.jpg' %}
+    <img class="thumbnail" src="{{ asset_url }}" />
+    {% endimage %}
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <h2>Maçonnerie</h2>
+    <p></p>
+  </div>
+</div>
+<!-- End Job -->
+{{ include("ImFrontBundle:Default:footer.html.twig") }}
+</body>
+</html>
+
+

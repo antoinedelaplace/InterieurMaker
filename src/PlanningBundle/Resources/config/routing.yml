@@ -1,0 +1,19 @@
+save_reservation:
+    path:	/save_reservation
+    defaults: {_controller: PlanningBundle:Reservation:saveReservation }
+
+get_reservations:
+    path:	/get_reservations
+    defaults: {_controller: PlanningBundle:Reservation:getPlanningResaFree }
+
+save_fiche_intervention:
+    path:   /save_fiche_intervention
+    defaults: {_controller: PlanningBundle:FicheIntervention:saveFicheIntervention}
+
+open_fiche_intervention:
+    path:   /open_fiche_intervention
+    defaults: {_controller: PlanningBundle:FicheIntervention:openFicheIntervention}
+
+save_infos_agent:
+    path:   /save_infos_agent
+    defaults: {_controller: PlanningBundle:Agent:saveInfosAgent}

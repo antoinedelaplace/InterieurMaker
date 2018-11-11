@@ -1,0 +1,92 @@
+<ul class="tabs" data-tabs id="job-tabs">
+    <li class="tabs-title"><a href="#" id="peinture" onclick='open_table(this, "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");'>Peinture</a></li>
+    <li class="tabs-title"><a href="#" id="electricite" onclick='open_table(this, "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");'>Electricité</a></li>
+    <li class="tabs-title"><a href="#" id="plomberie" onclick='open_table(this, "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");'>Plomberie</a></li>
+    <li class="tabs-title"><a href="#" id="maconnerie" onclick='open_table(this, "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");'>Maconnerie</a></li>
+    <li class="tabs-title"><a href="#" id="architecture" onclick='open_table(this, "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");'>Architecture Intérieure</a></li>
+</ul>
+<div id="loader" style="display: none; text-align: center;">
+    {% image '@PlanningBundle/Resources/public/img/loader.gif' %}
+        <img alt="loading" src="{{ asset_url }}" />
+    {% endimage %}
+</div>
+<input type="hidden" id="selected_job" />
+<table id="planning-table">
+    <h3 id="actual-month" class="actual">{{ actualmonth }}</h3>
+    <thead>
+    <tr>
+        <th>
+        </th>
+        {% for day in days %}
+            {% if loop.first %}
+            <th><a onclick='change_date_reservations("{{ path('change_date_reservations', {'Date': beforeDate} )}}");' class="button"><span class="prefix"><i class="fi-arrow-left"></i></span></a><span>{{ day }}</span></th>
+            {% elseif loop.last %}
+                <th><span>{{ day }}</span><a onclick='change_date_reservations("{{ path('change_date_reservations', {'Date': afterDate})}}");' class="button"><span class="prefix"><i class="fi-arrow-right"></i></span></a></th>
+            {% else %}
+                <th>{{ day }}</th>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for hours, reservation in reservations %}
+        {% for key, day_reservation in reservation  %}
+        <tr>
+            {% if key == 0 %}
+                <td>{{ hours }}</td>
+            {% else  %}
+                <td></td>
+            {% endif %}
+            {% for date_reservation in day_reservation  %}
+                <td></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>
+<div class="reveal back-lightgray" id="modal-fiche-intervention" class="reveal-modal remove-whitespace" data-reveal>
+    <div class="row">
+        <div class="columns auth-plain">
+            <div class="signup-panel left-solid back-lightgray">
+                <h2 class="welcome">Fiche d'intervention</h2>
+                <div id="loader_modal" style="display: none; text-align: center;">
+                    {% image '@PlanningBundle/Resources/public/img/loader.gif' %}
+                    <img alt="loading" src="{{ asset_url }}" />
+                    {% endimage %}
+                </div>
+                <form name="connect" action="{{ path('save_fiche_intervention') }}" method="post">
+                    <div class="row">
+                        <label>Type d'habitation
+                            <select id="home_type" name="home_type" required >
+                                <option value=""></option>
+                                <option value="home">Maison</option>
+                                <option value="apartment">Appartement</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <label>
+                            Quelle est la nature de votre problème ?
+                            <textarea id="issue" name="issue" required placeholder="Exemple : Fuite d'eau" rows="8"></textarea>
+                        </label>
+                    </div>
+                    <input type="hidden" id="idFiche" value="" name="idFiche" />
+                    <input class="button" type="submit" value="Créer">
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% if domain %}
+<script>
+    document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+            open_table("{{ domain }}", "{{ path('get_reservations') }}", "{{ path('save_reservation') }}");
+        }
+    }
+</script>
+{% endif %}

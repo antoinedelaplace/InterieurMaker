@@ -1,0 +1,41 @@
+<div class="reveal back-lightgray" id="ModalConnexion" class="reveal-modal remove-whitespace" data-reveal>
+    <div class="row">
+        <div class="large-6 columns auth-plain">
+            <div class="signup-panel left-solid back-lightgray">
+                <h2 class="welcome">Connexion</h2>
+                <form name="connect" action="{{ path('fos_user_security_check') }}" method="post" onsubmit='return checkCredentials("{{ path('check_credentials') }}")'>
+                    <div class="row collapse">
+                        <div class="small-2  columns">
+                            <span class="prefix"><i class="fi-torso-female"></i></span>
+                        </div>
+                        <div class="small-10  columns">
+                            <input type="text" id="username" name="_username" required placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row collapse">
+                        <div class="small-2 columns ">
+                            <span class="prefix"><i class="fi-lock"></i></span>
+                        </div>
+                        <div class="small-10 columns ">
+                            <input type="password" id="password" name="_password" required placeholder="Mot de passe">
+                        </div>
+                    </div>
+                    <div data-abide-error id="div-alert" class="alert callout" style="display: none;">
+                        <p id="alert"></p>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{  render(controller('UserBundle:Default:getToken', {})) }}" />
+                    <input class="button" type="submit">
+                </form>
+            </div>
+        </div>
+        <div class="large-6 columns auth-plain back-lightgray">
+            <div class="signup-panel newusers back-lightgray">
+                <h2 class="welcome"> Pas encore inscrit ?</h2>
+                <a href="{{ path('im_front_subscribe') }}" class="button ">S'inscrire</a></br>
+            </div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

@@ -1,0 +1,90 @@
+#foot {
+    background-color: #BEBFC4;
+}
+
+.button {
+    background-color: #CC9A89;
+    color : black;
+}
+
+.back-gray {
+    background-color: #BEBFC4;
+}
+
+.back-lightgray {
+    background-color: #EEEEEE;
+}
+
+a {
+    color : #CC9A89;
+}
+
+a:hover {
+    color : #B28D81;
+}
+
+.button:hover {
+    background-color : #B28D81;
+}
+
+body {
+    background-color: #EEEEEE;
+}
+
+.available:hover {
+    background-color: #99CDD8;
+}
+
+.available {
+    border: dashed 1px grey;
+}
+
+.meeting {
+    border: 1px grey;
+}
+
+.domain_6 {
+    background-color: #659dcc;
+    background-image: url("../images/plomberie.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+.domain_7 {
+    background-color: #79707A;
+    background-image: url("../images/maconnerie.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+.domain_8 {
+    background-color: #E5D146;
+    background-image: url("../images/electricite.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+.domain_9 {
+    background-color: #87cc45;
+    background-image: url("../images/peinture.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+.domain_10 {
+    background-color: #e5635d;
+    background-image: url("../images/architecture.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+}
+
+#first-text {
+    /*background-image: url("../img/wood2.jpg");
+    height: 300px;*/
+
+}
+
+/*icon modal connexion*/
+.signup-panel i {
+    color: #999;
+}
+
+a.active {
+    background-color: antiquewhite;
+}

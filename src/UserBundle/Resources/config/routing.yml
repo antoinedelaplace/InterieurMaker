@@ -1,0 +1,11 @@
+check_credentials:
+    path:	/check_credentials
+    defaults: {_controller: UserBundle:Default:hasGoodCredentials }
+
+save_subscribe:
+    path:	/subscribe/save
+    defaults: {_controller: UserBundle:Default:inscription }
+
+save_subscribe_agent:
+    path:	/subscribeAgent/save
+    defaults: {_controller: UserBundle:Default:inscriptionAgent }

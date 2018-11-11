@@ -1,0 +1,6 @@
+#installer assetic
+composer require symfony/assetic-bundle
+
+#recharge les images/css/javscript
+php bin/console assetic:dump
+

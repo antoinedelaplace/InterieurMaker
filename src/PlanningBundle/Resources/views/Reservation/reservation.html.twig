@@ -1,0 +1,77 @@
+<h3 class="actual">{{ actualmonth }}</h3>
+<table>
+    <thead>
+    <tr>
+        <th>
+            {% if isuser %}
+                <a href="{{ path('new_rdv') }}" class="button">Nouveau RDV</a>
+            {% endif %}
+        </th>
+        {% for day in days %}
+            {% if loop.first %}
+                <th><a href="{{ path('change_date_planning', {'Date': beforeDate}) }}" class="button"><span class="prefix"><i class="fi-arrow-left"></i></span></a>{{ day }}</th>
+            {% elseif loop.last %}
+                <th>{{ day }}<a href="{{ path('change_date_planning', {'Date': afterDate}) }}" class="button"><span class="prefix"><i class="fi-arrow-right"></i></span></a></th>
+            {% else %}
+                <th>{{ day }}</th>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for hours, reservation in reservations %}
+        {% for key, day_reservation in reservation  %}
+            <tr>
+                {% if key == 0 %}
+                    <td>{{ hours }}</td>
+                {% else  %}
+                    <td></td>
+                {% endif %}
+                {% for date_reservation in day_reservation  %}
+                    {% if date_reservation.heure is defined %}
+                        <td class="meeting domain_{{ date_reservation.idDomaine }}"><a onclick="get_technical_sheet('{{ path('open_fiche_intervention') }}', {{ date_reservation.id }}, '{{ path('im_webrtc') }}')">{{ date_reservation.heure }}</a></td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>
+<div class="reveal back-lightgray" id="modal-fiche-intervention" class="reveal-modal remove-whitespace" data-reveal>
+    <div class="row">
+        <div class="columns auth-plain">
+            <div class="signup-panel left-solid back-lightgray">
+                <h2 class="welcome">Fiche d'intervention</h2>
+                <div id="loader_modal" style="display: none; text-align: center;">
+                    {% image '@PlanningBundle/Resources/public/img/loader.gif' %}
+                    <img alt="loading" src="{{ asset_url }}" />
+                    {% endimage %}
+                </div>
+                <div class="row">
+                    <label>Type d'habitation
+                        <select id="home_type" disabled>
+                            <option value=""></option>
+                            <option value="home">Maison</option>
+                            <option value="apartment">Appartement</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="row">
+                    <label>
+                        Nature du problème
+                        <textarea id="issue" disabled rows="8"></textarea>
+                    </label>
+                </div>
+                <div class="row" id="webrtc">
+
+                </div>
+                <input type="hidden" id="idFiche" value="" name="idFiche" />
+            </div>
+        </div>
+    </div>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>

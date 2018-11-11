@@ -1,0 +1,1 @@
+ssh -i "docker.pem" ec2-user@ec2-54-202-241-11.us-west-2.compute.amazonaws.com

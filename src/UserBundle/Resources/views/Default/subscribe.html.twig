@@ -1,0 +1,99 @@
+<form method="post" action="{{ path('save_subscribe') }}">
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <h2>Compte</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Email
+                <input type="email" name="email" placeholder="nom@exemple.com">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Mot de Passe
+                <input type="password" name="password" placeholder="Au moins 5 caractères">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <h2>Informations personnelles</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label for="lastname">Nom*</label>
+                <input id="lastname" name="prenom" type="text" style="width: 49%;display: inline-block;" placeholder="Prénom">
+                <input name="nom" type="text" style="width: 49%;display: inline-block;" placeholder="Nom">
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Date de Naissance*
+                <input type="text" name="dateDeNaissance" placeholder="JJ/MM/AAAA">
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <h2>Coordonnées</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Téléphone
+                <input type="text" name="phone" placeholder="Fixe ou Mobile">
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Adresse*
+                <input type="text" name="adresse" placeholder="Adresse principale">
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label for="zipCode">Ville*</label>
+            <input id="zipCode" name="zipCode" type="text" style="width: 49%;display: inline-block;" placeholder="Code postal">
+            <input name="ville" type="text" style="width: 49%;display: inline-block;" placeholder="Ville">
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="medium-4 columns">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2 class="subheader">Mensuel</h2>
+                    <p>Abonnement mensuel </p>
+                    <p><button type="submit" class="button">S'abonner</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="medium-4 columns">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2 class="subheader">Trimestriel</h2>
+                    <p>Abonnement Trimestriel </p>
+                    <p><button type="submit" class="button">S'abonner</button></p>
+                </div>
+            </div>
+        </div>
+        <div class="medium-4 columns">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2 class="subheader">Annuel</h2>
+                    <p>Abonnement Annuel </p>
+                    <p><button type="submit" class="button">S'abonner</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

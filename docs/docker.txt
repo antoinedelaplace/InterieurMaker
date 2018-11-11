@@ -1,0 +1,14 @@
+Pour lancer le docker voici un exemple : 
+
+en root : service docker start
+
+docker run --name interieurmaker -d -v /home/benoit-xavierhouvet/Bureau/interieur_maker/appli/:/var/www/html/ -v /home/benoitxavierhouvet/Bureau/interieur_maker/sql/:/var/lib/mysql/ -p 9500:80 interieurmaker/appli:3
+
+en gros : 
+
+docker run --name [Nom_du_contenair] -d -v [Path_to_appli]:/var/www/html -v [Path_to_bdd]:/var/lib/mysql/ -p [Port_pour_le_web_sur_becane]:80 interieurmaker/appli:3
+
+Pour tuer un contenair : 
+
+docker stop [Nom_du_contenair]
+docker rm -f [Nom_du_contenair]

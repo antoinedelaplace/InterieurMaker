@@ -1,0 +1,50 @@
+<footer>
+    <div id="foot" class="row expanded callout secondary">
+
+        <div class="small-12 large-4 columns">
+            <p class="lead">Entreprise</p>
+            <ul class="menu vertical">
+                <li><a href="#">A propos d'Interieur Maker</a></li>
+                <li><a href="#">Equipe</a></li>
+                <li><a href="#">Recrutement</a></li>
+                <li><a href="#">Abonnements</a></li>
+            </ul>
+        </div>
+
+        <div class="small-12 large-4 columns">
+            <p class="lead">Metiers</p>
+            <ul class="menu vertical">
+                <li><a href="#">Peinture</a></li>
+                <li><a href="#">Eléctricité</a></li>
+                <li><a href="#">Maconnerie</a></li>
+                <li><a href="#">Plomberie</a></li>
+                <li><a href="#">Architecture d'intérieur</a></li>
+            </ul>
+        </div>
+
+        <div class="small-12 large-4 columns">
+            <p class="lead">Réseaux</p>
+            <ul class="menu vertical">
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    {% javascripts '@ImFrontBundle/Resources/public/foundation/js/jquery.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.core.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.util.mediaQuery.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.util.keyboard.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.util.box.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.util.triggers.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.util.motion.js'
+    '@ImFrontBundle/Resources/public/foundation/js/foundation.reveal.js'
+    '@UserBundle/Resources/public/js/check_connexion.js'
+    '@PlanningBundle/Resources/public/js/table_functions.js'  %}
+
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        $(document).foundation();
+    </script>
+</footer>

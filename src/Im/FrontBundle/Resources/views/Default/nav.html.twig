@@ -1,0 +1,17 @@
+<div class="top-bar ">
+    <div class="top-bar-left">
+        <ul class="menu">
+            <li class="menu-text "><a href="{{ path('im_front_homepage') }}">Interieur Maker</a></li>
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        <ul class="menu">
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <li class="menu-text"><a href="{{ path('im_front_planning') }}">Planning</a></li>
+                <li class="menu-text"><a href="{{ path('im_front_subscribe_agent') }}">Admin</a></li>
+                <li class="menu-text"><a href="{{ path('im_front_gestion_agent') }}">Agents</a></li>
+                <li class="menu-text"><a href="{{ path('fos_user_security_logout') }}">Se deconnecter</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

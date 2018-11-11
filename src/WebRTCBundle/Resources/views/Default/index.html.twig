@@ -1,0 +1,23 @@
+{% stylesheets '@WebRTCBundle/Resources/public/css/webrtc.css' %}
+<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+{% endstylesheets %}
+<div class="row">
+    <div class="large-6 columns videoContainer">
+        <div>
+            <video id="localVideo" style="height: 300px;" oncontextmenu="return false;"></video>
+        </div>
+    </div>
+    <div class="large-6 columns">
+        <div id="localScreenContainer" class="videoContainer" style="display: none;"></div>
+        <div id="remotes"></div>
+    </div>
+</div>
+{% javascripts '@WebRTCBundle/Resources/public/js/jquery.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+<script src="http://172.16.16.170:8001/latest-v2.js"></script>
+{% javascripts '@WebRTCBundle/Resources/public/js/webrtc.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+

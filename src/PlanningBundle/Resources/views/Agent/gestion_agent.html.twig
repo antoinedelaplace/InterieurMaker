@@ -1,0 +1,32 @@
+<form method="post" action="{{ path('save_infos_agent') }}">
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <h2>Gestion des Agents</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Agents
+                <select id="agents" name="agent" required >
+                    {% for idAgent, agent in agents %}
+                        <option value="{{ idAgent }}">{{ agent }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <label>Domaines
+                {% for idDomaine, domaine in domaines %}
+                    <br><input type="checkbox" name="domaines[]" value="{{ idDomaine }}">{{ domaine }}
+                {% endfor %}
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="medium-4 medium-centered columns">
+            <button type="submit" class="button">Enregistrer</button>
+        </div>
+    </div>
+</form>

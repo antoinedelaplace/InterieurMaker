@@ -1,0 +1,3 @@
+services:
+    planning.reservation:
+        class: PlanningBundle\Controller\ReservationController
